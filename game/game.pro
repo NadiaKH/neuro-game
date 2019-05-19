@@ -18,6 +18,7 @@ SOURCES += main.cpp \
     ball.cpp \
     camflyingaround.cpp \
     collisions.cpp \
+    movable.cpp \
     racket.cpp \
     scene.cpp \
     game.cpp \
@@ -28,6 +29,7 @@ HEADERS += \
     ball.hpp \
     camflyingaround.hpp \
     collisions.hpp \
+    movable.hpp \
     racket.hpp \
     stdafx.hpp \
     scene.hpp \

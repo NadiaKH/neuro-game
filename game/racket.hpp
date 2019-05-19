@@ -2,7 +2,7 @@
 
 #include "stdafx.hpp"
 #include "time.hpp"
-
+#include "movable.hpp"
 
 class Racket final
         : public QObject {
@@ -16,6 +16,9 @@ public:
     ~Racket() override;
 
     void setPos(QVector3D pos);
+    /*
+    void setRotation(...)
+    */
     QVector3D pos() const;
 
     /**
@@ -23,10 +26,13 @@ public:
      * @param endPos Where ball will be to return a ball.
      * @param dt Time in which ball reach endPos.
      */
-    void runAnimation1(QVector3D endPos, Time dt);
+    void runAnimation1(QVector3D endPos, Time dt){
+        Movable m(transform_);
+        m.startMove(endPos, dt);
+    }
 
-signals:
-    void animationFinished();
+//signals:
+//   void animationFinished();
 
 private:
     Qt3DCore::QEntity * entity_;

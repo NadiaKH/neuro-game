@@ -48,6 +48,7 @@ void Game::singlePlayer()
     racket1_->setPos({5.0, 5.0, 0.0});
     racket2_ = new Racket(rootEntity_);
     racket2_->setPos({-5.0, 5.0, 0.0});
+    racket1_->runAnimation1({-5.0, 5.0, 0.0}, 100ms);
 
     ball_ = new Ball(rootEntity_);
     ball_->setPos({10.0, 5.0, -1.0});

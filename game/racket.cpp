@@ -45,7 +45,7 @@ QVector3D Racket::pos() const
     return transform_->translation();
 }
 
-
+/*
 void Racket::runAnimation1(QVector3D endPos, Time dt)
 {
     Q_UNUSED(endPos)
@@ -55,7 +55,7 @@ void Racket::runAnimation1(QVector3D endPos, Time dt)
 
     emit animationFinished();
 }
-
+*/
 
 
 
