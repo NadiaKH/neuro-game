@@ -18,6 +18,8 @@ public:
     void setPos(QVector3D pos);
     QVector3D pos() const;
 
+    Qt3DCore::QTransform * transform();
+
     /**
      * @brief Runs racket animation and emmits animationFinished() at the end.
      * @param endPos Where ball will be to return a ball.

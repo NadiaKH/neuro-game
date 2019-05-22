@@ -46,6 +46,12 @@ QVector3D Racket::pos() const
 }
 
 
+Qt3DCore::QTransform * Racket::transform()
+{
+    return transform_;
+}
+
+
 void Racket::runAnimation1(QVector3D endPos, Time dt)
 {
     Q_UNUSED(endPos)
