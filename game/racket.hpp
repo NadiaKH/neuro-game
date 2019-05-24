@@ -21,14 +21,16 @@ public:
     */
     QVector3D pos() const;
 
+    Qt3DCore::QTransform * transform();
+
     /**
      * @brief Runs racket animation and emmits animationFinished() at the end.
      * @param endPos Where ball will be to return a ball.
      * @param dt Time in which ball reach endPos.
      */
     void runAnimation1(QVector3D endPos, Time dt){
-        Movable m(transform_);
-        m.startMove(endPos, dt);
+        Movable * m = new Movable(transform_);
+        m->startMove(endPos, dt);
     }
 
 //signals:

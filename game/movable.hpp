@@ -38,11 +38,11 @@ private:
 
     void LinearMove() {
         QVector3D pos = transform_->translation();
-        v_ = (newPos_ - pos) / timeToSec(dt_);
+        v_ = (newPos_ - pos) / timeToSec(dt_)/1000;
         transform_->setTranslation(pos + v_);
 
         if (dt_ <= Clock::dt60) {
-            stop();
+            emit stop();
             delete this;
         }
         else
