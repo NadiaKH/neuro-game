@@ -21,6 +21,7 @@ SOURCES += main.cpp \
     movable.cpp \
     racket.cpp \
     racketanimation1.cpp \
+    racketanimation2.cpp \
     scene.cpp \
     game.cpp \
     table.cpp \
@@ -33,6 +34,7 @@ HEADERS += \
     movable.hpp \
     racket.hpp \
     racketanimation1.hpp \
+    racketanimation2.hpp \
     stdafx.hpp \
     scene.hpp \
     game.hpp \ \

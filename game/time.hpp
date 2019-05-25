@@ -7,6 +7,7 @@ using Time = std::chrono::milliseconds;
 using TimeSec = std::chrono::duration<float>;
 
 
+
 constexpr auto timeToSec(Time t) {
     return std::chrono::duration_cast<TimeSec>(t).count();
 }

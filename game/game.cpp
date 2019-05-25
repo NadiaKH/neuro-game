@@ -48,13 +48,13 @@ void Game::singlePlayer()
     racket1_->setPos({5.0, 5.0, 0.0});
     racket2_ = new Racket(rootEntity_);
     racket2_->setPos({-5.0, 5.0, 0.0});
-    racket1_->runAnimation1({-5.0, 5.0, 0.0}, 100ms);
+    racket1_->runAnimation2({4.0, 4.6, 2.0}, 500ms);
 
     ball_ = new Ball(rootEntity_);
-    ball_->setPos({10.0, 5.0, -1.0});
-    ball_->setGravity(true);
-    ball_->setV({0, Table::h + 0.2f, 0}, 1000ms);
-    ball_->setBorderCrossNotifier({{-3, 3}});
+    ball_->setPos({5.0, 5.85f, 0.0});
+    //ball_->setGravity(true);
+    //ball_->setV({0, Table::h + 0.2f, 0}, 1000ms);
+//    ball_->setBorderCrossNotifier({{-3, 3}});
 
     connect(ball_, &Ball::borderCrossed, [](bool crossedInto) {
         if (crossedInto) {

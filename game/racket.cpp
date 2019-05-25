@@ -6,6 +6,7 @@
 Racket::Racket(Qt3DCore::QEntity * parent)
     : entity_(new Qt3DCore::QEntity(parent))
     , transform_(new Qt3DCore::QTransform)
+    , shift_({0.0, -0.85f, 0.0})
 {
     assert(parent);
 
@@ -36,13 +37,13 @@ Racket::~Racket()
 
 void Racket::setPos(QVector3D pos)
 {
-    transform_->setTranslation(pos);
+    transform_->setTranslation(pos + transform_->rotation().rotatedVector(shift_));
 }
 
 
 QVector3D Racket::pos() const
 {
-    return transform_->translation();
+    return transform_->translation() - transform_->rotation().rotatedVector(shift_);
 }
 
 

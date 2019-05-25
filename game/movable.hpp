@@ -38,7 +38,8 @@ private:
 
     void LinearMove() {
         QVector3D pos = transform_->translation();
-        v_ = (newPos_ - pos) / timeToSec(dt_)/1000;
+        float coeff = timeToSec(Clock::dt60) /  timeToSec(dt_);
+        v_ = (newPos_ - pos) * coeff;
         transform_->setTranslation(pos + v_);
 
         if (dt_ <= Clock::dt60) {
