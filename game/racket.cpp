@@ -55,13 +55,15 @@ Qt3DCore::QTransform * Racket::transform()
 
 void Racket::runAnimation1(QVector3D newPos, Time dt)
 {
-    new RacketAnimation1(this, newPos, dt);
+    auto ra = new RacketAnimation1(this, newPos, dt);
+    connect(ra, &RacketAnimation1::stop, this, &Racket::animationFinished);
 }
 
 
 void Racket::runAnimation2(QVector3D newPos, Time dt)
 {
-    new RacketAnimation2(this, newPos, dt);
+    auto ra = new RacketAnimation2(this, newPos, dt);
+    connect(ra, &RacketAnimation2::stop, this, &Racket::animationFinished);
 }
 
 
