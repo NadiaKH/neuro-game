@@ -18,7 +18,6 @@ SOURCES += main.cpp \
     ball.cpp \
     camflyingaround.cpp \
     collisions.cpp \
-    movable.cpp \
     racket.cpp \
     racketanimation1.cpp \
     racketanimation2.cpp \
@@ -31,7 +30,6 @@ HEADERS += \
     ball.hpp \
     camflyingaround.hpp \
     collisions.hpp \
-    movable.hpp \
     racket.hpp \
     racketanimation1.hpp \
     racketanimation2.hpp \
