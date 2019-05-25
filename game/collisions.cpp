@@ -1,14 +1,15 @@
 #include "collisions.hpp"
 
 #include "table.hpp"
+#include "ball.hpp"
 
 
-Collisions::Collisions(Ball * ball, Scene * scene)
+Collisions::Collisions(Ball * ball, Table * table)
     : ball_ (ball)
-    , scene_(scene)
+    , table_(table)
 {
     assert(ball);
-    assert(scene);
+    assert(table);
 
     // It should not be connected to deleteLater,
     // dtor will throw std::bad_alloc in disconnect.
@@ -28,9 +29,9 @@ void Collisions::update(Time dt)
 {
     Q_UNUSED(dt)
     assert(ball_);
-    assert(scene_);
+    assert(table_);
 
-    if (auto n = scene_->table()->intersects(ball_)) {
+    if (auto n = table_->intersects(ball_)) {
         ball_->reflect(n.value());
     }
 }

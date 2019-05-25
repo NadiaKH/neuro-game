@@ -1,15 +1,18 @@
 #pragma once
 
-#include "scene.hpp"
-#include "ball.hpp"
+#include "stdafx.hpp"
+#include "time.hpp"
 
+
+class Ball;
+class Table;
 
 class Collisions final
         : public QObject {
     Q_OBJECT
 
 public:
-    Collisions(Ball * ball, Scene * scene);
+    Collisions(Ball * ball, Table * table);
     ~Collisions() override;
 
 private slots:
@@ -18,5 +21,5 @@ private slots:
 
 private:
     Ball  * ball_;
-    Scene * scene_;
+    Table * table_;
 };
