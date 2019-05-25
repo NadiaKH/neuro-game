@@ -21,13 +21,10 @@ private:
     void move();
 
     QVector3D semiCycle(QVector3D x0, QVector3D x1);
-
     QVector3D cycle(QVector3D x, QVector3D bound);
 
     float semiCycle(float x0, float x1);
-
     float cycle(float x, float bound);
-
     float cycle2(float x, float bound);
 
 private:

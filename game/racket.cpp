@@ -53,11 +53,74 @@ Qt3DCore::QTransform * Racket::transform()
 }
 
 
+void Racket::runAnimation1(QVector3D newPos, Time dt)
+{
+    new RacketAnimation1(this, newPos, dt);
+}
 
 
+void Racket::runAnimation2(QVector3D newPos, Time dt)
+{
+    new RacketAnimation2(this, newPos, dt);
+}
 
 
+void Racket::rotateX(float x)
+{
+    x /= 2;
+    x = x * float(M_PI)/ 180;
 
+    QQuaternion rotX(cosf(x), {sinf(x), 0, 0});
+    QQuaternion cur_rot(transform_->rotation());
+    QQuaternion rotation = cur_rot * rotX;
+
+    QVector3D curTransl = transform_->translation();
+
+    QVector3D oldShift = cur_rot.rotatedVector(shift_);
+    QVector3D newShift = rotation.rotatedVector(shift_);
+
+    transform_->setTranslation(curTransl - oldShift + newShift);
+    transform_->setRotation(rotation);
+}
+
+
+void Racket::rotateY(float y)
+{
+    y /= 2;
+    y = y * float(M_PI)/ 180;
+
+    QQuaternion rotY(cosf(y), {0, sinf(y), 0});
+    QQuaternion cur_rot(transform_->rotation());
+    QQuaternion rotation = cur_rot * rotY;
+
+
+    QVector3D curTransl = transform_->translation();
+
+    QVector3D oldShift = cur_rot.rotatedVector(shift_);
+    QVector3D newShift = rotation.rotatedVector(shift_);
+
+    transform_->setTranslation(curTransl - oldShift + newShift);
+    transform_->setRotation(rotation);
+}
+
+
+void Racket::rotateZ(float z)
+{
+    z /= 2;
+    z = z * float(M_PI)/ 180;
+
+    QQuaternion rotZ(cosf(z), {0, 0, sinf(z)});
+    QQuaternion cur_rot(transform_->rotation());
+    QQuaternion rotation = cur_rot * rotZ;
+
+    QVector3D curTransl = transform_->translation();
+
+    QVector3D oldShift = cur_rot.rotatedVector(shift_);
+    QVector3D newShift = rotation.rotatedVector(shift_);
+
+    transform_->setTranslation(curTransl - oldShift + newShift);
+    transform_->setRotation(rotation);
+}
 
 
 

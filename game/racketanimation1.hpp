@@ -5,6 +5,8 @@
 
 class Racket;
 
+
+// TODO fix style
 class RacketAnimation1 final
         : public QObject {
     Q_OBJECT
