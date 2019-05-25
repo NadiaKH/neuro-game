@@ -24,6 +24,7 @@ RacketAnimation2::~RacketAnimation2()
 
 void RacketAnimation2::update(Time dt)
 {
+    Q_UNUSED(dt)
     move();
 }
 

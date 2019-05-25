@@ -2,7 +2,6 @@
 
 #include "stdafx.hpp"
 #include "time.hpp"
-#include "movable.hpp"
 #include "racketanimation1.hpp"
 #include "racketanimation2.hpp"
 #include <math.h>
@@ -32,13 +31,13 @@ public:
      * @param dt Time in which ball reach endPos.
      */
     void runAnimation1(QVector3D newPos, Time dt){
-        RacketAnimation1 * ra = new RacketAnimation1(this, newPos, dt);
+        new RacketAnimation1(this, newPos, dt);
     }
 
     void runAnimation2(QVector3D newPos, Time dt){
-        RacketAnimation2 * ra = new RacketAnimation2(this, newPos, dt);
+        new RacketAnimation2(this, newPos, dt);
     }
-    
+
     void rotateX(float x) {
         x /= 2;
         x = x * float(M_PI)/ 180;
@@ -57,7 +56,7 @@ public:
         transform_->setRotation(rotation);
 
     }
-    
+
     void rotateY(float y) {
         y /= 2;
         y = y * float(M_PI)/ 180;
@@ -76,7 +75,7 @@ public:
         transform_->setRotation(rotation);
 
     }
-    
+
     void rotateZ(float z) {
         z /= 2;
         z = z * float(M_PI)/ 180;
@@ -95,10 +94,8 @@ public:
         transform_->setRotation(rotation);
     }
 
-
-
-//signals:
-//   void animationFinished();
+signals:
+   void animationFinished();
 
 private:
     Qt3DCore::QEntity * entity_;

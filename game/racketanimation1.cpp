@@ -22,6 +22,7 @@ RacketAnimation1::~RacketAnimation1()
 
 void RacketAnimation1::update(Time dt)
 {
+    Q_UNUSED(dt)
     move();
 }
 
@@ -36,7 +37,7 @@ void RacketAnimation1::move() {
     //static float ax = -racket_->transform()->rotationX();
     //static float ay = -racket_->transform()->rotationY();
     //static float az = -racket_->transform()->rotationZ();
-    static float c = timeToSec(Clock::dt60)/timeToSec(r);
+//    static float c = timeToSec(Clock::dt60)/timeToSec(r);
 
     //racket_->rotateX(ax * c);
     //racket_->rotateY(ay * c);
