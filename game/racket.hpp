@@ -4,6 +4,7 @@
 #include "time.hpp"
 #include "racketanimation1.hpp"
 #include "racketanimation2.hpp"
+#include "racketanimation2_copy.hpp"
 #include <math.h>
 
 class Racket final
@@ -29,6 +30,7 @@ public:
      */
     void runAnimation1(QVector3D newPos, Time dt);
     void runAnimation2(QVector3D newPos, Time dt);
+    void runAnimation10(QVector3D newPos, Time dt);
 
     void rotateX(float x);
     void rotateY(float y);

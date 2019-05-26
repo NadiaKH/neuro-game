@@ -66,6 +66,12 @@ void Racket::runAnimation2(QVector3D newPos, Time dt)
     connect(ra, &RacketAnimation2::stop, this, &Racket::animationFinished);
 }
 
+void Racket::runAnimation10(QVector3D newPos, Time dt)
+{
+    auto ra = new RacketAnimation10(this, newPos, dt);
+    connect(ra, &RacketAnimation10::stop, this, &Racket::animationFinished);
+}
+
 
 void Racket::rotateX(float x)
 {
