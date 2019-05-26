@@ -5,11 +5,17 @@
 
 
 RacketAnimation2::RacketAnimation2(Racket * r, QVector3D newPos, Time dt)
-    : racket_(r), duration_(dt), time_(0), startPos_(r->pos()), newPos_(newPos)
+    : racket_(r), duration_(dt), time_(0), newPos_(newPos)
 {
     assert(r);
     connect(racket_, &Racket::destroyed, this, &RacketAnimation1::deleteLater);
     connect(Clock::instance(), &Clock::fps60dt, this, &RacketAnimation2::update);
+
+    x_ = racket_->transform()->rotationX();
+    y_ = racket_->transform()->rotationY();
+    z_ = racket_->transform()->rotationZ();
+
+    startPos_ = racket_->transform()->translation();
 }
 
 
@@ -47,11 +53,16 @@ void RacketAnimation2::move()
 
 
     if (time_ >= duration_) {
-        emit stop();
-        racket_->setPos(startPos_);
-        QQuaternion rot = racket_->transform()->rotation();
-        racket_->transform()->setRotation(rot.inverted());
-        delete this;
+
+            Qt3DCore::QTransform * tr = racket_->transform();
+            tr->setRotationX(x_);
+            tr->setRotationY(y_);
+            tr->setRotationZ(z_);
+
+            startPos_.setY(6 -0.85f);
+            tr->setTranslation(startPos_);
+            emit stop();
+            delete this;
     }
     else
         time_ += Clock::dt60;

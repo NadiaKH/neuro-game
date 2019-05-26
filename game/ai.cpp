@@ -40,8 +40,8 @@ void AI::delThis()
 
 void AI::start()
 {
-    lracket_->setPos({-5.0, 5.0, 0.0});
-    rracket_->setPos({5.0, 5.0, 0.0});
+    lracket_->setPos({-5.0, 6.0, 0.0});
+    rracket_->setPos({5.0, 6.0, 0.0});
 
     ball_->setPos({5.0, 5.85f, 0.0});
     ball_->setGravity(true);

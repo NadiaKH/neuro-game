@@ -34,4 +34,10 @@ private:
     QVector3D startPos_;
     QVector3D newPos_;
     QVector3D v_;
+    //init rotations
+    float x_;
+    float y_;
+    float z_;
 };
+
+
