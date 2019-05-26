@@ -48,12 +48,16 @@ void RacketAnimation2::move()
     racket_->rotateZ(rotAngle);
 
 
-    QVector3D p = semiCycle(startPos_, newPos_);
+    QVector3D p = semiCycle(startPos_, newPos_ + QVector3D{0, 0, -0.15f * (z_>90)});
     racket_->setPos(p);
 
 
     if (time_ >= duration_) {
+        static int i = 0;
+        i++;
 
+
+        if (i > 100) {
             Qt3DCore::QTransform * tr = racket_->transform();
             tr->setRotationX(x_);
             tr->setRotationY(y_);
@@ -63,6 +67,7 @@ void RacketAnimation2::move()
             tr->setTranslation(startPos_);
             emit stop();
             delete this;
+        }
     }
     else
         time_ += Clock::dt60;
