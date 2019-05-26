@@ -34,5 +34,4 @@ private:
     QVector3D startPos_;
     QVector3D newPos_;
     QVector3D v_;
-
 };

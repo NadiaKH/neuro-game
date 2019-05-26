@@ -2,7 +2,7 @@
 
 #include "ball.hpp"
 #include "racket.hpp"
-#include "collisions.hpp"
+#include "ai.hpp"
 
 
 Game::Game(Qt3DCore::QEntity * root, Qt3DRender::QCamera * camera)
@@ -45,29 +45,10 @@ void Game::singlePlayer()
     assert(!ball_);
 
     racket1_ = new Racket(rootEntity_);
-    racket1_->setPos({5.0, 5.0, 0.0});
     racket2_ = new Racket(rootEntity_);
-    racket2_->setPos({-5.0, 5.0, 0.0});
-    racket1_->runAnimation2({4.0, 4.6, 2.0}, 500ms);
+    ball_    = new Ball  (rootEntity_);
 
-    ball_ = new Ball(rootEntity_);
-    ball_->setPos({5.0, 5.85f, 0.0});
-    //ball_->setGravity(true);
-    //ball_->setV({0, Table::h + 0.2f, 0}, 1000ms);
-//    ball_->setBorderCrossNotifier({{-3, 3}});
-
-    connect(ball_, &Ball::borderCrossed, [](bool crossedInto) {
-        if (crossedInto) {
-            Clock::instance()->setDeceleration(100);
-        } else {
-            Clock::instance()->setDeceleration(30);
-        }
-    });
-    connect(ball_, &Ball::destroyed, [] {
-        Clock::instance()->setDeceleration(100);
-    });
-
-    new Collisions(ball_, scene_.get());
+    new AI(racket1_, racket2_, ball_, scene_->table());
 }
 
 
