@@ -4,7 +4,7 @@
 #include "ball.hpp"
 
 
-Collisions::Collisions(Ball * ball, Table * table)
+Collisions::Collisions(Ball * ball, Table const * table)
     : ball_ (ball)
     , table_(table)
 {

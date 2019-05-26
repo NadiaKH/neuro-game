@@ -12,7 +12,7 @@ class Collisions final
     Q_OBJECT
 
 public:
-    Collisions(Ball * ball, Table * table);
+    Collisions(Ball * ball, Table const * table);
     ~Collisions() override;
 
 private slots:
@@ -20,6 +20,6 @@ private slots:
     void harakiri();
 
 private:
-    Ball  * ball_;
-    Table * table_;
+    Ball * ball_;
+    Table const * table_;
 };
